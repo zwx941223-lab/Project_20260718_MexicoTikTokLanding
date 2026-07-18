@@ -47,7 +47,7 @@ body::before {
 .page-shell {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px 0 56px;
+  padding: 16px 0 34px;
 }
 
 .topbar,
@@ -65,13 +65,13 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 18px;
+  padding: 12px 16px;
   border-radius: 999px;
   background: rgba(255, 250, 242, 0.85);
   border: 1px solid rgba(17, 32, 25, 0.08);
   box-shadow: var(--shadow);
   position: sticky;
-  top: 16px;
+  top: 10px;
   z-index: 10;
 }
 
@@ -92,7 +92,7 @@ body::before {
 
 .brand-name {
   font-family: "Baloo 2", cursive;
-  font-size: 1.6rem;
+  font-size: 1.45rem;
 }
 
 .topbar-cta,
@@ -106,8 +106,8 @@ body::before {
 }
 
 .button {
-  min-height: 54px;
-  padding: 0 24px;
+  min-height: 50px;
+  padding: 0 20px;
   border-radius: 999px;
 }
 
@@ -132,8 +132,8 @@ body::before {
 .hero {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 32px;
-  padding: 48px 0 28px;
+  gap: 24px;
+  padding: 28px 0 16px;
   align-items: center;
 }
 
@@ -160,7 +160,7 @@ body::before {
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
   max-width: 11ch;
 }
 
@@ -181,7 +181,7 @@ body::before {
 }
 
 .hero-badges {
-  margin: 24px 0;
+  margin: 16px 0 18px;
 }
 
 .hero-badges span {
@@ -222,38 +222,27 @@ body::before {
 
 .hero-card-note {
   display: grid;
-  gap: 8px;
+  gap: 4px;
   position: absolute;
   left: 18px;
   right: 18px;
   bottom: 18px;
-  padding: 16px 18px;
+  padding: 14px 16px;
   border-radius: 18px;
   background: rgba(17, 32, 25, 0.78);
   color: #fff;
-}
-
-.trust-strip {
-  margin: 16px 0 36px;
-  padding: 18px 20px;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 250, 242, 0.8);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  text-align: center;
-  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .feature-grid,
 .steps {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .feature-grid {
-  grid-template-columns: repeat(4, 1fr);
-  margin: 0 0 44px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 0 24px;
 }
 
 .feature,
@@ -265,7 +254,7 @@ body::before {
 }
 
 .feature {
-  padding: 24px;
+  padding: 18px 18px 16px;
   border-radius: var(--radius-lg);
 }
 
@@ -279,11 +268,11 @@ body::before {
 
 .process,
 .faq {
-  margin: 0 0 52px;
+  margin: 0 0 24px;
 }
 
 .section-heading {
-  margin-bottom: 22px;
+  margin-bottom: 12px;
 }
 
 .section-heading h2,
@@ -297,52 +286,16 @@ body::before {
 }
 
 .step {
-  padding: 24px;
+  padding: 18px;
   border-radius: var(--radius-lg);
 }
 
 .step-number {
   display: inline-flex;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
   font-weight: 800;
   font-size: 1.05rem;
   color: var(--red);
-}
-
-.showcase {
-  display: grid;
-  grid-template-columns: 1fr 0.92fr;
-  gap: 24px;
-  margin: 0 0 52px;
-  padding: 24px;
-  border-radius: var(--radius-xl);
-  background:
-    linear-gradient(135deg, rgba(255, 250, 242, 0.95), rgba(248, 233, 211, 0.9)),
-    linear-gradient(135deg, rgba(206, 42, 42, 0.08), rgba(14, 127, 135, 0.08));
-}
-
-.showcase-image img {
-  border-radius: 24px;
-  box-shadow: 0 18px 40px rgba(17, 32, 25, 0.18);
-}
-
-.faq-list {
-  display: grid;
-  gap: 14px;
-}
-
-.faq-list details {
-  padding: 18px 20px;
-  border-radius: 18px;
-}
-
-.faq-list summary {
-  cursor: pointer;
-  list-style: none;
-}
-
-.faq-list summary::-webkit-details-marker {
-  display: none;
 }
 
 .cta-panel {
@@ -350,7 +303,7 @@ body::before {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 28px;
+  padding: 22px;
   border-radius: var(--radius-xl);
 }
 
@@ -360,10 +313,8 @@ body::before {
 
 @media (max-width: 1024px) {
   .hero,
-  .showcase,
   .feature-grid,
-  .steps,
-  .trust-strip {
+  .steps {
     grid-template-columns: 1fr;
   }
 
@@ -375,7 +326,7 @@ body::before {
 @media (max-width: 640px) {
   .page-shell {
     width: min(100% - 20px, 100%);
-    padding-top: 16px;
+    padding-top: 10px;
   }
 
   .topbar,
@@ -395,10 +346,35 @@ body::before {
   }
 
   .hero {
-    padding-top: 28px;
+    padding-top: 18px;
+    gap: 16px;
   }
 
   .hero h1 {
-    font-size: 2.4rem;
+    font-size: 2.1rem;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .hero-badges {
+    margin: 12px 0 14px;
+    gap: 8px;
+  }
+
+  .hero-badges span {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+  }
+
+  .feature-grid,
+  .compact-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .feature,
+  .step {
+    padding: 16px;
   }
 }
