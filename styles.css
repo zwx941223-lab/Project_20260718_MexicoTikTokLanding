@@ -355,7 +355,32 @@ body::before {
   }
 
   .hero-visual {
-    display: none;
+    display: flex;
+    order: 2;
+    margin-top: 4px;
+  }
+
+  .hero-copy {
+    order: 1;
+  }
+
+  .hero-card {
+    max-width: 100%;
+    border-radius: 22px;
+  }
+
+  .hero-card img {
+    max-height: 260px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-card-note {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 10px 12px;
+    font-size: 0.84rem;
   }
 
   .hero-badges {
