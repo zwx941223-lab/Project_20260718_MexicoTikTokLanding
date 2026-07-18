@@ -1,5 +1,5 @@
 const landingConfig = {
-  version: "0.0.6",
+  version: "0.0.7",
   whatsappCountryCode: "52",
   whatsappNumber: "0000000000",
   prefilledMessage:

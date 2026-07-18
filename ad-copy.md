@@ -1,6 +1,6 @@
 # TikTok Funnel Copy
 
-Version: `0.0.6`
+Version: `0.0.7`
 
 ## Primary text
 

@@ -47,7 +47,7 @@ body::before {
 .page-shell {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 16px 0 34px;
+  padding: 12px 0 24px;
 }
 
 .topbar,
@@ -132,8 +132,8 @@ body::before {
 .hero {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 24px;
-  padding: 28px 0 16px;
+  gap: 18px;
+  padding: 18px 0 10px;
   align-items: center;
 }
 
@@ -170,21 +170,21 @@ body::before {
 .feature p,
 .step p {
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 .eligibility-box {
-  margin: 16px 0 0;
-  padding: 16px 18px;
-  border-radius: 20px;
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  border-radius: 16px;
   background: rgba(206, 42, 42, 0.08);
   border: 1px solid rgba(206, 42, 42, 0.16);
 }
 
 .eligibility-box strong {
   display: block;
-  margin-bottom: 8px;
-  font-size: 1rem;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
 }
 
 .eligibility-box p {
@@ -194,7 +194,7 @@ body::before {
 }
 
 .eligibility-box p + p {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .hero-badges,
@@ -205,15 +205,15 @@ body::before {
 }
 
 .hero-badges {
-  margin: 16px 0 18px;
+  margin: 12px 0 8px;
 }
 
 .hero-badges span {
-  padding: 12px 14px;
+  padding: 8px 11px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(17, 32, 25, 0.08);
-  font-size: 0.94rem;
+  font-size: 0.82rem;
   font-weight: 700;
 }
 
@@ -266,7 +266,7 @@ body::before {
 
 .feature-grid {
   grid-template-columns: repeat(3, 1fr);
-  margin: 0 0 24px;
+  margin: 0 0 14px;
 }
 
 .feature,
@@ -278,31 +278,31 @@ body::before {
 }
 
 .feature {
-  padding: 18px 18px 16px;
+  padding: 14px 14px 12px;
   border-radius: var(--radius-lg);
 }
 
 .feature h2,
 .step h3,
 .faq-list summary {
-  margin: 0 0 12px;
-  font-size: 1.15rem;
+  margin: 0 0 8px;
+  font-size: 1rem;
   font-weight: 800;
 }
 
 .process,
 .faq {
-  margin: 0 0 24px;
+  margin: 0 0 14px;
 }
 
 .section-heading {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .section-heading h2,
 .showcase-copy h2,
 .cta-panel h2 {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
 
 .steps {
@@ -310,15 +310,15 @@ body::before {
 }
 
 .step {
-  padding: 18px;
+  padding: 14px;
   border-radius: var(--radius-lg);
 }
 
 .step-number {
   display: inline-flex;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   color: var(--red);
 }
 
@@ -326,8 +326,8 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
-  padding: 22px;
+  gap: 12px;
+  padding: 16px;
   border-radius: var(--radius-xl);
 }
 
@@ -370,12 +370,12 @@ body::before {
   }
 
   .hero {
-    padding-top: 18px;
-    gap: 16px;
+    padding-top: 12px;
+    gap: 12px;
   }
 
   .hero h1 {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
   }
 
   .hero-visual {
@@ -394,7 +394,7 @@ body::before {
   }
 
   .hero-card img {
-    max-height: 260px;
+    max-height: 180px;
     object-fit: cover;
     object-position: center top;
   }
@@ -403,23 +403,23 @@ body::before {
     left: 12px;
     right: 12px;
     bottom: 12px;
-    padding: 10px 12px;
-    font-size: 0.84rem;
+    padding: 8px 10px;
+    font-size: 0.76rem;
   }
 
   .hero-badges {
-    margin: 12px 0 14px;
-    gap: 8px;
+    margin: 10px 0 6px;
+    gap: 6px;
   }
 
   .hero-badges span {
-    padding: 10px 12px;
-    font-size: 0.88rem;
+    padding: 7px 10px;
+    font-size: 0.78rem;
   }
 
   .eligibility-box {
-    padding: 14px;
-    border-radius: 18px;
+    padding: 10px 12px;
+    border-radius: 14px;
   }
 
   .feature-grid,
@@ -429,6 +429,10 @@ body::before {
 
   .feature,
   .step {
-    padding: 16px;
+    padding: 12px;
+  }
+
+  .cta-panel h2 {
+    font-size: 1.35rem;
   }
 }
