@@ -1,5 +1,5 @@
 const landingConfig = {
-  version: "0.1.16",
+  version: "0.1.17",
   whatsappCountryCode: "52",
   whatsappNumber: "5574072325",
   prefilledMessage:
@@ -18,6 +18,11 @@ function bindWhatsAppLinks() {
     node.setAttribute("href", link);
     node.setAttribute("target", "_blank");
     node.setAttribute("rel", "noreferrer noopener");
+    node.addEventListener("click", () => {
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "Contact");
+      }
+    });
   });
 }
 
