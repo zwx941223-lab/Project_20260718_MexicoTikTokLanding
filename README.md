@@ -1,6 +1,6 @@
 # Mexico TikTok Landing
 
-Version: `0.1.17`
+Version: `0.1.18`
 
 Static landing page funnel for:
 
