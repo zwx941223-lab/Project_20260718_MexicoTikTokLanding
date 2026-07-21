@@ -1,7 +1,7 @@
 const landingConfig = {
-  version: "0.1.19",
-  whatsappCountryCode: "52",
-  whatsappNumber: "5574072325",
+  version: "0.1.20",
+  whatsappCountryCode: "86",
+  whatsappNumber: "19079450632",
   prefilledMessage:
     "Hola, vi su anuncio sobre apoyo para abrir una tienda en TikTok Shop y quiero recibir mas informacion.",
 };
