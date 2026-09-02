@@ -39,6 +39,10 @@ foreach ($path in $paths) {
   if ($LASTEXITCODE -eq 0 -and $remoteRaw) {
     $remoteFile = $remoteRaw | ConvertFrom-Json
   }
+  $remoteSha = $null
+  if ($remoteFile -and $remoteFile.type -eq "file") {
+    $remoteSha = [string]$remoteFile.sha
+  }
 
   git cat-file -e "${parent}:$path" 2>$null
   $parentHasFile = ($LASTEXITCODE -eq 0)
@@ -46,7 +50,7 @@ foreach ($path in $paths) {
   if ($parentHasFile) {
     $parentBlob = git rev-parse "${parent}:$path"
   }
-  if ($parentHasFile -and $remoteFile -and $parentBlob -ne $remoteFile.sha) {
+  if ($parentHasFile -and $remoteSha -and $parentBlob -ne $remoteSha) {
     throw "远端文件已变化，未覆盖: $path"
   }
 
@@ -59,13 +63,13 @@ foreach ($path in $paths) {
       content = [Convert]::ToBase64String($bytes)
       branch = $branch
     }
-    if ($remoteFile) { $body.sha = $remoteFile.sha }
+    if ($remoteSha) { $body.sha = $remoteSha }
     $json = $body | ConvertTo-Json -Compress
     $result = $json | gh api --method PUT "repos/$repo/contents/$encodedPath" --input - --jq ".commit.sha"
-  } elseif ($remoteFile) {
+  } elseif ($remoteSha) {
     $body = @{
       message = "Sync $Commit"
-      sha = $remoteFile.sha
+      sha = $remoteSha
       branch = $branch
     } | ConvertTo-Json -Compress
     $result = $body | gh api --method DELETE "repos/$repo/contents/$encodedPath" --input - --jq ".commit.sha"
