@@ -41,8 +41,13 @@ foreach ($path in $paths) {
     $remoteFile = $null
   }
 
-  $parentBlob = git rev-parse "${parent}:$path" 2>$null
-  if ($parentBlob -and $remoteFile -and $parentBlob -ne $remoteFile.sha) {
+  git cat-file -e "${parent}:$path" 2>$null
+  $parentHasFile = ($LASTEXITCODE -eq 0)
+  $parentBlob = $null
+  if ($parentHasFile) {
+    $parentBlob = git rev-parse "${parent}:$path"
+  }
+  if ($parentHasFile -and $remoteFile -and $parentBlob -ne $remoteFile.sha) {
     throw "远端文件已变化，未覆盖: $path"
   }
 
