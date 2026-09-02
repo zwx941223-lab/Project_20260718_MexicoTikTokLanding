@@ -44,13 +44,24 @@ foreach ($path in $paths) {
     $remoteSha = [string]$remoteFile.sha
   }
 
+  $remoteContentBlob = $null
+  if ($remoteFile -and $remoteFile.content) {
+    $remoteTemp = Join-Path ([System.IO.Path]::GetTempPath()) ("git-sync-" + [guid]::NewGuid().ToString("N") + ".bin")
+    try {
+      [System.IO.File]::WriteAllBytes($remoteTemp, [Convert]::FromBase64String(($remoteFile.content -replace '\s', '')))
+      $remoteContentBlob = git hash-object $remoteTemp
+    } finally {
+      Remove-Item -LiteralPath $remoteTemp -Force -ErrorAction SilentlyContinue
+    }
+  }
+
   git cat-file -e "${parent}:$path" 2>$null
   $parentHasFile = ($LASTEXITCODE -eq 0)
   $parentBlob = $null
   if ($parentHasFile) {
     $parentBlob = git rev-parse "${parent}:$path"
   }
-  if ($parentHasFile -and $remoteSha -and $parentBlob -ne $remoteSha) {
+  if ($parentHasFile -and $remoteContentBlob -and $parentBlob -ne $remoteContentBlob) {
     throw "远端文件已变化，未覆盖: $path"
   }
 
