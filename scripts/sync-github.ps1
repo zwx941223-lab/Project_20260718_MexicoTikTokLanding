@@ -58,12 +58,20 @@ foreach ($path in $paths) {
   $existsInCommit = $LASTEXITCODE
   if ($existsInCommit -eq 0) {
     $bytes = Get-GitBlobBytes $Commit $path
-    $body = @{
-      message = "Sync $Commit"
-      content = [Convert]::ToBase64String($bytes)
-      branch = $branch
+    if ($remoteSha) {
+      $body = @{
+        message = "Sync $Commit"
+        content = [Convert]::ToBase64String($bytes)
+        branch = $branch
+        sha = $remoteSha
+      }
+    } else {
+      $body = @{
+        message = "Sync $Commit"
+        content = [Convert]::ToBase64String($bytes)
+        branch = $branch
+      }
     }
-    if ($remoteSha) { $body.sha = $remoteSha }
     $json = $body | ConvertTo-Json -Compress
     $result = $json | gh api --method PUT "repos/$repo/contents/$encodedPath" --input - --jq ".commit.sha"
   } elseif ($remoteSha) {
