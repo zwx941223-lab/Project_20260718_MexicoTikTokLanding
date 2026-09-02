@@ -74,7 +74,7 @@ foreach ($path in $paths) {
     throw "远端文件已变化，未覆盖: $path"
   }
 
-  if ($existsInCommit -eq 0) {
+  if ($existsInCommit) {
     $bytes = Get-GitBlobBytes $Commit $path
     $content = [Convert]::ToBase64String($bytes)
     $payloadPath = Join-Path ([System.IO.Path]::GetTempPath()) ("git-sync-payload-" + [guid]::NewGuid().ToString("N") + ".json")
