@@ -35,7 +35,7 @@ function Get-GitBlobBytes([string]$revision, [string]$path) {
 foreach ($path in $paths) {
   $encodedPath = [System.Uri]::EscapeDataString($path).Replace("%2F", "/")
   $remoteFile = $null
-  $remoteRaw = gh api "repos/$repo/contents/$encodedPath" --field "ref=$branch" 2>$null
+  $remoteRaw = gh api --method GET "repos/$repo/contents/$encodedPath" --raw-field "ref=$branch" 2>$null
   if ($LASTEXITCODE -eq 0 -and $remoteRaw) {
     $remoteFile = $remoteRaw | ConvertFrom-Json
   }
