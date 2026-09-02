@@ -58,29 +58,14 @@ foreach ($path in $paths) {
   $existsInCommit = $LASTEXITCODE
   if ($existsInCommit -eq 0) {
     $bytes = Get-GitBlobBytes $Commit $path
+    $content = [Convert]::ToBase64String($bytes)
     if ($remoteSha) {
-      $body = @{
-        message = "Sync $Commit"
-        content = [Convert]::ToBase64String($bytes)
-        branch = $branch
-        sha = $remoteSha
-      }
+      $result = gh api --method PUT "repos/$repo/contents/$encodedPath" --field "message=Sync $Commit" --field "content=$content" --field "branch=$branch" --field "sha=$remoteSha" --jq ".commit.sha"
     } else {
-      $body = @{
-        message = "Sync $Commit"
-        content = [Convert]::ToBase64String($bytes)
-        branch = $branch
-      }
+      $result = gh api --method PUT "repos/$repo/contents/$encodedPath" --field "message=Sync $Commit" --field "content=$content" --field "branch=$branch" --jq ".commit.sha"
     }
-    $json = $body | ConvertTo-Json -Compress
-    $result = $json | gh api --method PUT "repos/$repo/contents/$encodedPath" --input - --jq ".commit.sha"
   } elseif ($remoteSha) {
-    $body = @{
-      message = "Sync $Commit"
-      sha = $remoteSha
-      branch = $branch
-    } | ConvertTo-Json -Compress
-    $result = $body | gh api --method DELETE "repos/$repo/contents/$encodedPath" --input - --jq ".commit.sha"
+    $result = gh api --method DELETE "repos/$repo/contents/$encodedPath" --field "message=Sync $Commit" --field "sha=$remoteSha" --field "branch=$branch" --jq ".commit.sha"
   } else {
     continue
   }
