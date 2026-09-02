@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Apoyo para abrir y operar tu tienda en TikTok Shop con acompanamiento paso a paso en Mexico.">
+  <meta name="description" content="Apoyo para abrir y operar tu tienda en TikTok Shop con acompanamiento paso a paso en Mexico a traves de Telegram.">
   <title>Impulsa tu tienda en TikTok Shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +26,47 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2067845957273570&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject = t;
+  var ttq = w[t] = w[t] || [];
+  ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"];
+  ttq.setAndDefer = function (t, e) {
+    t[e] = function () {
+      t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+    };
+  };
+  for (var i = 0; i < ttq.methods.length; i++) {
+    ttq.setAndDefer(ttq, ttq.methods[i]);
+  }
+  ttq.instance = function (t) {
+    for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) {
+      ttq.setAndDefer(e, ttq.methods[n]);
+    }
+    return e;
+  };
+  ttq.load = function (e, n) {
+    var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i = ttq._i || {};
+    ttq._i[e] = [];
+    ttq._i[e]._u = r;
+    ttq._t = ttq._t || {};
+    ttq._t[e] = +new Date;
+    ttq._o = ttq._o || {};
+    ttq._o[e] = n || {};
+    n = document.createElement("script");
+    n.type = "text/javascript";
+    n.async = !0;
+    n.src = r + "?sdkid=" + e + "&lib=" + t;
+    e = document.getElementsByTagName("script")[0];
+    e.parentNode.insertBefore(n, e);
+  };
+  ttq.load("DAC4P6RC77UC8FLJI16G");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
 </head>
 <body>
   <div class="page-shell">
@@ -40,7 +81,7 @@ src="https://www.facebook.com/tr?id=2067845957273570&ev=PageView&noscript=1"
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Servicio de apoyo para vendedores en Mexico</p>
-          <h1>Abre tu tienda en TikTok Shop con apoyo por WhatsApp</h1>
+          <h1>Abre tu tienda en TikTok Shop con apoyo por Telegram</h1>
           <p class="hero-text">Registro, configuracion y acompanamiento basico para empezar con orden.</p>
 
           <div class="eligibility-box">
@@ -53,9 +94,9 @@ src="https://www.facebook.com/tr?id=2067845957273570&ev=PageView&noscript=1"
 
         <div class="hero-visual">
           <div class="hero-card">
-            <img src="assets/mx-landing-hero-banner.png" alt="Emprendedora mexicana mostrando su tienda en linea">
+            <img src="assets/mx-landing-hero-banner-telegram.png" alt="Emprendedora mexicana mostrando su tienda en linea">
             <div class="hero-card-note">
-              <strong>Apoyo rapido por WhatsApp</strong>
+              <strong>Apoyo rapido por Telegram</strong>
               <span>Te explicamos el proceso y el siguiente paso.</span>
             </div>
           </div>
@@ -84,7 +125,7 @@ src="https://www.facebook.com/tr?id=2067845957273570&ev=PageView&noscript=1"
         </div>
 
         <div class="steps compact-steps">
-          <article class="step"><span class="step-number">1</span><h3>Escribenos</h3><p>Recibes respuesta por WhatsApp.</p></article>
+          <article class="step"><span class="step-number">1</span><h3>Escribenos</h3><p>Recibes respuesta por Telegram.</p></article>
           <article class="step"><span class="step-number">2</span><h3>Revisamos</h3><p>Validamos tu perfil.</p></article>
           <article class="step"><span class="step-number">3</span><h3>Inicias</h3><p>Te indicamos como seguir.</p></article>
         </div>
@@ -95,7 +136,7 @@ src="https://www.facebook.com/tr?id=2067845957273570&ev=PageView&noscript=1"
           <p class="eyebrow">Listo para empezar</p>
           <h2>Escribenos y recibe mas informacion</h2>
         </div>
-        <a class="button primary large" data-wa-link href="#">Enviar mensaje</a>
+        <a class="button primary large" data-telegram-link href="#">Enviar mensaje</a>
       </section>
     </main>
   </div>
