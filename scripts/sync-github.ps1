@@ -70,10 +70,18 @@ foreach ($path in $paths) {
   if ($existsInCommit -eq 0) {
     $bytes = Get-GitBlobBytes $Commit $path
     $content = [Convert]::ToBase64String($bytes)
-    if ($remoteSha) {
-      $result = gh api --method PUT "repos/$repo/contents/$encodedPath" --field "message=Sync $Commit" --field "content=$content" --field "branch=$branch" --field "sha=$remoteSha" --jq ".commit.sha"
-    } else {
-      $result = gh api --method PUT "repos/$repo/contents/$encodedPath" --field "message=Sync $Commit" --field "content=$content" --field "branch=$branch" --jq ".commit.sha"
+    $payloadPath = Join-Path ([System.IO.Path]::GetTempPath()) ("git-sync-payload-" + [guid]::NewGuid().ToString("N") + ".json")
+    try {
+      $payload = [ordered]@{
+        message = "Sync $Commit"
+        content = $content
+        branch = $branch
+      }
+      if ($remoteSha) { $payload.sha = $remoteSha }
+      $payload | ConvertTo-Json -Compress | Set-Content -LiteralPath $payloadPath -Encoding utf8
+      $result = gh api --method PUT "repos/$repo/contents/$encodedPath" --input $payloadPath --jq ".commit.sha"
+    } finally {
+      Remove-Item -LiteralPath $payloadPath -Force -ErrorAction SilentlyContinue
     }
   } elseif ($remoteSha) {
     $result = gh api --method DELETE "repos/$repo/contents/$encodedPath" --field "message=Sync $Commit" --field "sha=$remoteSha" --field "branch=$branch" --jq ".commit.sha"
