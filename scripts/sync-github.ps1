@@ -57,16 +57,23 @@ foreach ($path in $paths) {
 
   git cat-file -e "${parent}:$path" 2>$null
   $parentHasFile = ($LASTEXITCODE -eq 0)
+  git cat-file -e "${Commit}:$path" 2>$null
+  $existsInCommit = ($LASTEXITCODE -eq 0)
   $parentBlob = $null
   if ($parentHasFile) {
     $parentBlob = git rev-parse "${parent}:$path"
+  }
+  $commitBlob = $null
+  if ($existsInCommit) {
+    $commitBlob = git rev-parse "${Commit}:$path"
+  }
+  if ($remoteContentBlob -and $commitBlob -eq $remoteContentBlob) {
+    continue
   }
   if ($parentHasFile -and $remoteContentBlob -and $parentBlob -ne $remoteContentBlob) {
     throw "远端文件已变化，未覆盖: $path"
   }
 
-  git cat-file -e "${Commit}:$path" 2>$null
-  $existsInCommit = $LASTEXITCODE
   if ($existsInCommit -eq 0) {
     $bytes = Get-GitBlobBytes $Commit $path
     $content = [Convert]::ToBase64String($bytes)
