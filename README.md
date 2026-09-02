@@ -1,18 +1,19 @@
 # Mexico TikTok Landing
 
-Version: `0.2.1`
+Version: `0.2.5`
 
 Static landing page funnel for:
 
 - TikTok image ad
 - Mexico-localized landing page
-- WhatsApp CTA handoff
+- Telegram CTA handoff
 
 ## Files
 
 - `index.html`: landing page markup
 - `styles.css`: page styling
-- `app.js`: WhatsApp CTA config and simple interactions
+- `app.js`: Telegram CTA config and simple interactions
+- TikTok Pixel events: `ViewContent`, `ClickButton`, and `Contact`
 - `ad-copy.md`: TikTok ad copy and image prompts
 - `assets/`: model-generated images
 
@@ -20,4 +21,4 @@ Static landing page funnel for:
 
 Open `index.html` in a browser.
 
-Before deployment, update the WhatsApp number and prefilled message in `app.js`.
+Before deployment, update the Telegram username in `app.js`.
