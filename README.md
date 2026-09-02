@@ -1,6 +1,6 @@
 # Mexico TikTok Landing
 
-Version: `0.2.5`
+Version: `0.2.6`
 
 Static landing page funnel for:
 
@@ -13,7 +13,7 @@ Static landing page funnel for:
 - `index.html`: landing page markup
 - `styles.css`: page styling
 - `app.js`: Telegram CTA config and simple interactions
-- TikTok Pixel events: `ViewContent`, `ClickButton`, and `Contact`
+- TikTok Pixel events: `ClickButton` and `Contact`
 - `ad-copy.md`: TikTok ad copy and image prompts
 - `assets/`: model-generated images
 

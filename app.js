@@ -1,5 +1,5 @@
 const landingConfig = {
-  version: "0.2.5",
+  version: "0.2.6",
   telegramUsername: "b23355",
   prefilledMessage:
     "Hola, vi su anuncio sobre apoyo para abrir una tienda en TikTok Shop y quiero recibir mas informacion.",
@@ -40,6 +40,5 @@ function bindTelegramLinks() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  trackTikTokEvent("ViewContent", { contents: [landingContent] });
   bindTelegramLinks();
 });

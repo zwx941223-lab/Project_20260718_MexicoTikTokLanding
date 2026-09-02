@@ -1,0 +1,2 @@
+#!/bin/sh
+exec pwsh -NoProfile -ExecutionPolicy Bypass -File "$(git rev-parse --show-toplevel)/scripts/sync-github.ps1" -Commit "$(git rev-parse HEAD)"
