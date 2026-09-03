@@ -1,12 +1,12 @@
 const landingConfig = {
-  version: "0.2.8",
+  version: "0.2.9",
   telegramUsername: "b23355",
   prefilledMessage:
     "Hola, vi su anuncio sobre apoyo para abrir una tienda en TikTok Shop y quiero recibir mas informacion.",
 };
 
 function buildTelegramLink() {
-  return `https://t.me/${landingConfig.telegramUsername}`;
+  return `tg://resolve?domain=${landingConfig.telegramUsername}`;
 }
 
 function bindTelegramLinks() {
