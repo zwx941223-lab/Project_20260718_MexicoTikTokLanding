@@ -1,12 +1,12 @@
 # Mexico TikTok Landing
 
-Version: `0.2.8`
+Version: `0.2.9`
 
 Static landing page funnel for:
 
 - TikTok image ad
 - Mexico-localized landing page
-- Telegram CTA handoff
+- Telegram protocol CTA handoff
 
 ## Files
 
